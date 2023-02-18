@@ -12,6 +12,18 @@ main {
   display: grid;
   grid-template-columns: 1fr;
 }
+.loading {
+  font-size: 1.2rem;
+  color: green;
+  text-align: center;
+  margin-top: 4rem;
+}
+.error {
+  font-size: 1.2rem;
+  color: #e65b0a;
+  text-align: center;
+  margin-top: 4rem;
+}
 .company_info {
   border: 1px solid #dde1e3;
   border-radius: 8px;

@@ -14,8 +14,8 @@ const COMPANY_QUERY = gql`
 const Dashboard = () => {
   const { data, loading, error } = useQuery(COMPANY_QUERY);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <p className="loading">Loading... please wait</p>;
+  if (error) return <p className="error">Error :(. refresh page</p>;
 
   return (
     <>
