@@ -13,7 +13,6 @@ const COMPANY_QUERY = gql`
 `;
 const Dashboard = () => {
   const { data, loading, error } = useQuery(COMPANY_QUERY);
-  console.log(data.company.ceo);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
