@@ -3,6 +3,8 @@ import logo from "./../../images/money-app.png";
 import monitorImg from "./../../images/monitor.png";
 import manageImg from "./../../images/manage.png";
 import delegateImg from "./../../images/delegate.png";
+import { Link } from "react-router-dom";
+
 const Login = () => {
   return (
     <main className="login">
@@ -55,13 +57,28 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <form className="login_form">
-        <h2>Login to your dashboard</h2>
-        <p>Provide details to login to your account </p>
-        <label htmlFor="">Email</label>
-        <input type="text" placeholder="Cokitchen222@gmail.co" />
-        <label htmlFor="">Password</label>
-        <button>Login</button>
+      <form className="login_form_container">
+        <div className="login_form">
+          <h2>Login to your dashboard</h2>
+          <p>Provide details to login to your account </p>
+          <div className="form_inputs">
+            <div className="form_input_container">
+              <label htmlFor="">Email</label>
+              <input type="text" placeholder="Cokitchen222@gmail.co" />
+            </div>
+            <div className="form_input_container">
+              {" "}
+              <label htmlFor="">Password</label>
+              <input type="password" name="" id="" />
+            </div>
+            <div className="login_button_container">
+              {" "}
+              <Link to={`/dashboard`} className="login_button">
+                Login
+              </Link>
+            </div>{" "}
+          </div>
+        </div>
       </form>
     </main>
   );
