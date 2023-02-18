@@ -13,10 +13,6 @@ const Login: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-
-    console.log("logged in");
-
-    // Perform login with username and password
     if (!username || !password) return;
     navigate("/dashboard");
   };
@@ -25,12 +21,6 @@ const Login: React.FC = () => {
     const target = e.target as HTMLInputElement;
     updateUserDetails(target.name, target.value);
   };
-  // const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setUsername(event.target.value);
-  // };
-  // const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setPassword(event.target.value);
-  // };
 
   return (
     <main className="login">

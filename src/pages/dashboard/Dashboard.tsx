@@ -2,8 +2,22 @@ import "./Dashboard.css";
 import logo from "./../../images/money-app.png";
 import timer from "./../../images/timer.svg";
 import comingsoon from "./../../images/coming-soon.png";
+import { useQuery, gql } from "@apollo/client";
 
+const COMPANY_QUERY = gql`
+  query CompanyQuery {
+    company {
+      name
+    }
+  }
+`;
 const Dashboard = () => {
+  const { data, loading, error } = useQuery(COMPANY_QUERY);
+  console.log(data.company.ceo);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
   return (
     <>
       <header>
@@ -13,15 +27,15 @@ const Dashboard = () => {
         <div className="company_info">
           <h1>
             {" "}
-            <span>CN</span> COMPANY NAME
+            <span>sx</span> {data.company.name}
           </h1>
           <div>
-            <span>CTO</span>
-            <h2>CEO NAME</h2>
+            <span>CEO</span>
+            <h2>{data.company.ceo}</h2>
           </div>{" "}
           <div>
             <span>cto</span>
-            <h2>CTO NAME</h2>
+            <h2>{data.company.cto}</h2>
           </div>
         </div>
         <div className="notification">
