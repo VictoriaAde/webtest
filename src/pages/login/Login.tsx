@@ -3,9 +3,35 @@ import logo from "./../../images/money-app.png";
 import monitorImg from "./../../images/monitor.png";
 import manageImg from "./../../images/manage.png";
 import delegateImg from "./../../images/delegate.png";
-import { Link } from "react-router-dom";
+// import React, { useContext } from "react";
+import useGlobalAuthContext from "./../../auth";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login: React.FC = () => {
+  const { username, password, updateUserDetails } = useGlobalAuthContext();
+  const navigate = useNavigate();
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    console.log("logged in");
+
+    // Perform login with username and password
+    if (!username || !password) return;
+    navigate("/dashboard");
+  };
+
+  const handleChange = (e: React.ChangeEvent) => {
+    const target = e.target as HTMLInputElement;
+    updateUserDetails(target.name, target.value);
+  };
+  // const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setUsername(event.target.value);
+  // };
+  // const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setPassword(event.target.value);
+  // };
+
   return (
     <main className="login">
       <div className="login_description">
@@ -57,26 +83,39 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <form className="login_form_container">
+      <form onSubmit={handleLogin} className="login_form_container">
         <div className="login_form">
           <h2>Login to your dashboard</h2>
           <p>Provide details to login to your account </p>
           <div className="form_inputs">
             <div className="form_input_container">
               <label htmlFor="">Email</label>
-              <input type="text" placeholder="Cokitchen222@gmail.co" />
+              <input
+                type="text"
+                placeholder="user@gmail.com"
+                required
+                value={username}
+                name="username"
+                onChange={handleChange}
+              />
             </div>
             <div className="form_input_container">
               {" "}
               <label htmlFor="">Password</label>
-              <input type="password" name="" id="" />
+              <input
+                type="password"
+                required
+                value={password}
+                name="password"
+                onChange={handleChange}
+              />
             </div>
             <div className="login_button_container">
               {" "}
-              <Link to={`/dashboard`} className="login_button">
+              <button type="submit" className="login_button">
                 Login
-              </Link>
-            </div>{" "}
+              </button>
+            </div>
           </div>
         </div>
       </form>
