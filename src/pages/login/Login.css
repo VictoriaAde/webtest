@@ -1,0 +1,73 @@
+* {
+  font-family: "Manrope", sans-serif;
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.login_description-heading {
+  font-size: 1.5rem;
+  line-height: 38px;
+  letter-spacing: -0.5px;
+  color: #1a1a1a;
+}
+.login_description-paragraph {
+  font-weight: 400;
+  font-size: 0.7rem;
+  line-height: 19px;
+  letter-spacing: 0.3px;
+  color: #595959;
+}
+.login_description-list {
+  display: flex;
+  gap: 1rem;
+}
+.login_description-list img {
+  width: 50px;
+}
+.login_description-list h3 {
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 25px;
+  letter-spacing: -0.3px;
+  color: #858585;
+  margin: 0;
+}
+.login_description-list p {
+  font-weight: 400;
+  font-size: 0.7rem;
+  line-height: 19px;
+  color: #a3a3a3;
+  margin: 0;
+  margin-bottom: 0.7rem;
+}
+.login_description-list p:focus {
+  color: #73798c;
+}
+.active_h3:hover {
+  color: #1a1a1a;
+}
+.active_p:hover {
+  color: #73798c;
+}
+@media screen and (min-width: 768px) {
+  .login {
+    flex-direction: row;
+  }
+  .login_description-heading {
+    font-size: 2rem;
+    line-height: 38px;
+  }
+  .login_description-paragraph {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 25px;
+  }
+  .login_description-list h3 {
+    font-size: 1rem;
+  }
+  .login_description-list p {
+    font-size: 0.75rem;
+  }
+}
