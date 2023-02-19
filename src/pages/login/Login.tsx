@@ -3,30 +3,37 @@ import logo from "./../../images/money-app.png";
 import monitorImg from "./../../images/monitor.png";
 import manageImg from "./../../images/manage.png";
 import delegateImg from "./../../images/delegate.png";
-// import  { useContext } from "react";
 import useGlobalAuthContext from "./../../auth";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Login: React.FC = () => {
-  const { username, password, updateUserDetails } = useGlobalAuthContext();
+  const { username, password } = useGlobalAuthContext();
+  const [formAuth, setFormAuth] = useState({ username: "", password: "" });
+
   const navigate = useNavigate();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (username && password) {
-      navigate("/dashboard");
+
+    if (username !== formAuth.username && password !== formAuth.password) {
+      alert("invalid credentails");
+
+      return;
     }
+
+    navigate("/dashboard");
   };
 
   const handleChange = (e: React.ChangeEvent) => {
     const target = e.target as HTMLInputElement;
-    updateUserDetails(target.name, target.value);
+    setFormAuth({ ...formAuth, [target.name]: target.value });
   };
 
   return (
     <main className="login">
       <div className="login_description">
-        <img src={logo} alt="Money app logo" />
+        <img className="logo" src={logo} alt="Money app logo" />
         <h1 className="login_description-heading">Hi there, see what’s new</h1>
         <p className="login_description-paragraph">
           Here’s how Foodcourt helps you manage your daily operations and ensure
@@ -85,7 +92,7 @@ const Login: React.FC = () => {
                 type="text"
                 placeholder="user@gmail.com"
                 required
-                value={username}
+                value={formAuth.username}
                 name="username"
                 onChange={handleChange}
               />
@@ -96,7 +103,7 @@ const Login: React.FC = () => {
               <input
                 type="password"
                 required
-                value={password}
+                value={formAuth.password}
                 name="password"
                 onChange={handleChange}
               />

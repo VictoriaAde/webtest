@@ -10,6 +10,8 @@ const COMPANY_QUERY = gql`
   query CompanyQuery {
     company {
       name
+      ceo
+      cto
     }
   }
 `;

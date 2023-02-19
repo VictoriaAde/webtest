@@ -1,47 +1,24 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext } from "react";
 
 type AuthContextType = {
   username: string;
   password: string;
-  updateUserDetails: (name: string, value: string) => void;
 };
 type AuthProviderProps = {
   children: React.ReactElement;
 };
 
 export const AuthContext = createContext<AuthContextType>({
-  username: "user",
-  password: "pass",
-  updateUserDetails: (name: string, value: string) => {},
+  username: "",
+  password: "",
 });
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  useEffect(() => {
-    let timerId: ReturnType<typeof setTimeout>;
-
-    if (username && password) {
-      timerId = setTimeout(() => {
-        setUsername("");
-        setPassword("");
-      }, 5000);
-      return () => {
-        clearTimeout(timerId);
-      };
-    }
-  }, [username, password]);
-  const updateUserDetails = (name: string, value: string): void => {
-    if (name === "username") {
-      setUsername(value);
-    }
-    if (name === "password") {
-      setPassword(value);
-    }
-  };
+  const user = "adedayovicky123@gmail.com";
+  const pass = "vic";
 
   return (
-    <AuthContext.Provider value={{ username, password, updateUserDetails }}>
+    <AuthContext.Provider value={{ username: user, password: pass }}>
       {children}
     </AuthContext.Provider>
   );
