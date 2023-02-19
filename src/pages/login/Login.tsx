@@ -3,7 +3,7 @@ import logo from "./../../images/money-app.png";
 import monitorImg from "./../../images/monitor.png";
 import manageImg from "./../../images/manage.png";
 import delegateImg from "./../../images/delegate.png";
-// import React, { useContext } from "react";
+// import  { useContext } from "react";
 import useGlobalAuthContext from "./../../auth";
 import { useNavigate } from "react-router-dom";
 
@@ -13,8 +13,9 @@ const Login: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!username || !password) return;
-    navigate("/dashboard");
+    if (username && password) {
+      navigate("/dashboard");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent) => {

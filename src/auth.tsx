@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 type AuthContextType = {
   username: string;
@@ -10,8 +10,8 @@ type AuthProviderProps = {
 };
 
 export const AuthContext = createContext<AuthContextType>({
-  username: "",
-  password: "",
+  username: "user",
+  password: "pass",
   updateUserDetails: (name: string, value: string) => {},
 });
 
