@@ -12,6 +12,7 @@ header {
 main {
   display: grid;
   grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
 .loading {
@@ -80,7 +81,7 @@ main {
   background: #f7f7f7;
   border-radius: 12px;
   padding: 2rem 1rem;
-  margin: 1rem;
+  margin: 2rem 1rem 1rem;
 }
 
 .comingsoon {
@@ -130,9 +131,8 @@ main {
   .company_info {
     border: 1px solid #dde1e3;
     border-radius: 8px;
-    margin: 0 3.75rem;
+    margin: 0 1rem 2rem 3.75rem;
     padding: 3.688rem 3.75rem 0;
-    margin-bottom: 2rem;
   }
 
   .company_info h1 {
@@ -149,7 +149,7 @@ main {
 
   .notification {
     padding: 2rem 1rem;
-    margin-right: 2rem;
+    margin: 0 4rem 2rem 0;
   }
 
   .notification h1 {
