@@ -89,7 +89,7 @@ const Login: React.FC = () => {
             <div className="form_input_container">
               <label htmlFor="">Email</label>
               <input
-                type="text"
+                type="email"
                 placeholder="user@gmail.com"
                 required
                 value={formAuth.username}
