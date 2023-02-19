@@ -15,7 +15,7 @@ export const AuthContext = createContext<AuthContextType>({
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const user = "example@gmail.com";
-  const pass = "password";
+  const pass = "passw";
 
   return (
     <AuthContext.Provider value={{ username: user, password: pass }}>
