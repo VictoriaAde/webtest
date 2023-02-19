@@ -10,19 +10,18 @@ import { useState } from "react";
 const Login: React.FC = () => {
   const { username, password } = useGlobalAuthContext();
   const [formAuth, setFormAuth] = useState({ username: "", password: "" });
+  console.log(username, password, formAuth);
 
   const navigate = useNavigate();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (username !== formAuth.username && password !== formAuth.password) {
+    if (username === formAuth.username && password === formAuth.password) {
+      navigate("/dashboard");
+    } else {
       alert("invalid credentails");
-
-      return;
     }
-
-    navigate("/dashboard");
   };
 
   const handleChange = (e: React.ChangeEvent) => {
@@ -98,7 +97,6 @@ const Login: React.FC = () => {
                 type="email"
                 placeholder="user@gmail.com"
                 required
-                value={formAuth.username}
                 name="username"
                 onChange={handleChange}
               />
@@ -109,7 +107,6 @@ const Login: React.FC = () => {
               <input
                 type="password"
                 required
-                value={formAuth.password}
                 name="password"
                 onChange={handleChange}
               />
