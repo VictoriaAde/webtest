@@ -34,18 +34,20 @@ const Login: React.FC = () => {
     <main className="login">
       <div className="login_description">
         <img className="logo" src={logo} alt="Money app logo" />
+
         <h1 className="login_description-heading">Hi there, see what’s new</h1>
         <p className="login_description-paragraph">
           Here’s how Foodcourt helps you manage your daily operations and ensure
           your riders are efficient
         </p>
+
         <div>
           <div className="login_description-list">
             <div>
               <img src={monitorImg} alt="Monitor your Earnings" />
             </div>
+
             <div>
-              {" "}
               <h3 className="active_h3">Monitor your Earnings</h3>
               <p className="active_p">
                 Easily see how much your busineses are earning on each
@@ -53,12 +55,13 @@ const Login: React.FC = () => {
               </p>
             </div>
           </div>
+
           <div className="login_description-list">
             <div>
               <img src={manageImg} alt="Manage your Businesses" />
             </div>
+
             <div>
-              {" "}
               <h3 className="active_h3">Manage your Businesses</h3>
               <p className="active_p">
                 Easily see how much your businesses are earning on each
@@ -66,12 +69,13 @@ const Login: React.FC = () => {
               </p>
             </div>
           </div>
+
           <div className="login_description-list">
             <div>
               <img src={delegateImg} alt="Delegate to Staff" />
             </div>
+
             <div>
-              {" "}
               <h3 className="active_h3">Delegate to Staff</h3>
               <p className="active_p">
                 Easily see how much your businesses are earning on each
@@ -81,10 +85,12 @@ const Login: React.FC = () => {
           </div>
         </div>
       </div>
+
       <form onSubmit={handleLogin} className="login_form_container">
         <div className="login_form">
           <h2>Login to your dashboard</h2>
           <p>Provide details to login to your account </p>
+
           <div className="form_inputs">
             <div className="form_input_container">
               <label htmlFor="">Email</label>
@@ -97,8 +103,8 @@ const Login: React.FC = () => {
                 onChange={handleChange}
               />
             </div>
+
             <div className="form_input_container">
-              {" "}
               <label htmlFor="">Password</label>
               <input
                 type="password"
@@ -108,8 +114,8 @@ const Login: React.FC = () => {
                 onChange={handleChange}
               />
             </div>
+
             <div className="login_button_container">
-              {" "}
               <button type="submit" className="login_button">
                 Login
               </button>
