@@ -48,7 +48,7 @@ const Dashboard = () => {
             <h2>{data.company.ceo}</h2>
           </div>{" "}
           <div>
-            <span>cto</span>
+            <span>CTO</span>
             <h2>{data.company.cto}</h2>
           </div>
         </div>
