@@ -51,13 +51,13 @@ main {
   color: #1cc578;
   text-transform: uppercase;
   padding: 1.5rem;
+  border-radius: 100%;
 }
 .company_info span {
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 19px;
   color: #858585;
-  border-radius: 50px;
   margin-right: 1rem;
 }
 .company_info h2 {
