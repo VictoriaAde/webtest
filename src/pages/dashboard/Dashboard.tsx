@@ -3,6 +3,8 @@ import logo from "./../../images/money-app.png";
 import timer from "./../../images/timer.svg";
 import comingsoon from "./../../images/coming-soon.png";
 import { useQuery, gql } from "@apollo/client";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const COMPANY_QUERY = gql`
   query CompanyQuery {
@@ -13,6 +15,19 @@ const COMPANY_QUERY = gql`
 `;
 const Dashboard = () => {
   const { data, loading, error } = useQuery(COMPANY_QUERY);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    let timerId: ReturnType<typeof setTimeout>;
+
+    timerId = setTimeout(() => {
+      navigate("/");
+    }, 120000); // 2 minutes in milliseconds
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [navigate]);
 
   if (loading) return <p className="loading">Loading... please wait</p>;
   if (error) return <p className="error">Error :(. refresh page</p>;
